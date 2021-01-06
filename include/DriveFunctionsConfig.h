@@ -28,8 +28,8 @@ void userDrive(void);
  * uncomment the chassis type here
  * x drive assumes 4 drive motors
  */
-//#define CHASSIS_4_MOTOR_INLINE
-#define CHASSIS_2_MOTOR_INLINE
+#define CHASSIS_4_MOTOR_INLINE
+//#define CHASSIS_2_MOTOR_INLINE
 //#define CHASSIS_X_DRIVE
 
 /*    Drive Motor Ports
@@ -44,10 +44,10 @@ void userDrive(void);
   extern motor BackLeft;
   extern motor BackRight;
 
-  #define FrontLeftPort     PORT9
-  #define FrontRightPort    PORT6
+  #define FrontLeftPort     PORT12
+  #define FrontRightPort    PORT13
   #define BackLeftPort      PORT11
-  #define BackRightPort     PORT20
+  #define BackRightPort     PORT14
 
 #elif defined(CHASSIS_2_MOTOR_INLINE)
   extern motor DriveLeft;

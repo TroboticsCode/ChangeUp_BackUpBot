@@ -83,20 +83,24 @@ void usercontrol(void) {
   while (1) {
     LiftMotor.setVelocity(100, pct);
     BeltLeft.setVelocity(100,pct);
-    BeltLeft.setVelocity(100,pct);
-    Controller1.ButtonY.pressed(autonomous);
+    BeltRight.setVelocity(100,pct);
 
+    LiftMotor.setStopping(hold);
+    
     //leave the drive code here, it should work if you set up 
     // DriveFunctionsConfig.h properly
     userDrive();
 
-    if (Controller1.ButtonA.pressing())
+    //lift control
+    LiftMotor.spin(forward, Controller1.Axis3.value(), pct);
+
+    //belt control
+    if (Controller1.ButtonL1.pressing())
     {
       BeltLeft.spin(forward);
       BeltRight.spin(forward);
     }
-
-    else if (Controller1.ButtonB.pressing())
+    else if (Controller1.ButtonL2.pressing())
     {
       BeltLeft.spin(reverse);
       BeltRight.spin(reverse);
@@ -106,8 +110,6 @@ void usercontrol(void) {
       BeltLeft.stop();
       BeltRight.stop();
     }
-
-    Controller1.ButtonX.pressed(testPID);
 
     wait(20, msec); // Sleep the task for a short amount of time to
   }
