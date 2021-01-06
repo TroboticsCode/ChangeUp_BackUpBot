@@ -1,3 +1,8 @@
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// Inertial12           inertial      12              
+// ---- END VEXCODE CONFIGURED DEVICES ----
 /*----------------------------------------------------------------------------*/
 /*                                                                            */
 /*    Module:       main.cpp                                                  */
@@ -11,6 +16,7 @@
 #include "vex.h"
 #include "Autons.h"
 #include "Functions.h"
+#include "DriveFunctionsConfig.h"
 
 using namespace vex;
 
@@ -72,7 +78,7 @@ void autonomous(void)
 void usercontrol(void) { 
   //add local user control variables here:
   int power;
-
+  
   //User control code here, inside the loop:
   //remove existing demo code and replace with you own! Then remove this comment
   while (1) {
@@ -81,20 +87,28 @@ void usercontrol(void) {
     ClawMotor.spin(reverse);
     Controller1.ButtonY.pressed(autonomous);
 
+    //leave the drive code here, it should work if you set up 
+    // DriveFunctionsConfig.h properly
+    userDrive();
+
     if (Controller1.ButtonA.pressing())
     {
       Tester1.spin(forward);
+      Tester2.spin(forward);
     }
 
     else if (Controller1.ButtonB.pressing())
     {
       Tester1.spin(reverse);
+      Tester2.spin(reverse);
     }
-
     else
     {
       Tester1.stop();
+      Tester2.stop();
     }
+
+    Controller1.ButtonX.pressed(testPID);
 
     wait(20, msec); // Sleep the task for a short amount of time to
   }
