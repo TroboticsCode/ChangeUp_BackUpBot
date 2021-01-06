@@ -77,14 +77,13 @@ void autonomous(void)
 
 void usercontrol(void) { 
   //add local user control variables here:
-  int power;
-  
+    
   //User control code here, inside the loop:
   //remove existing demo code and replace with you own! Then remove this comment
   while (1) {
-    power = Controller1.Axis1.position(percent)+Controller1.Axis2.position(percent);
-    ClawMotor.setVelocity(power, pct);
-    ClawMotor.spin(reverse);
+    LiftMotor.setVelocity(100, pct);
+    BeltLeft.setVelocity(100,pct);
+    BeltLeft.setVelocity(100,pct);
     Controller1.ButtonY.pressed(autonomous);
 
     //leave the drive code here, it should work if you set up 
@@ -93,19 +92,19 @@ void usercontrol(void) {
 
     if (Controller1.ButtonA.pressing())
     {
-      Tester1.spin(forward);
-      Tester2.spin(forward);
+      BeltLeft.spin(forward);
+      BeltRight.spin(forward);
     }
 
     else if (Controller1.ButtonB.pressing())
     {
-      Tester1.spin(reverse);
-      Tester2.spin(reverse);
+      BeltLeft.spin(reverse);
+      BeltRight.spin(reverse);
     }
     else
     {
-      Tester1.stop();
-      Tester2.stop();
+      BeltLeft.stop();
+      BeltRight.stop();
     }
 
     Controller1.ButtonX.pressed(testPID);
