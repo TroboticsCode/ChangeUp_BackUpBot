@@ -65,8 +65,8 @@ void userDrive(void);
  //#define TANK_CONTROL
 
 #ifdef ARCADE_CONTROL
-  #define HORIZONTALAXIS Axis1
-  #define VERTICALAXIS Axis2
+  #define HORIZONTALAXIS Axis4
+  #define VERTICALAXIS Axis3
 #elif def TANK_CONTROL
   #define LEFTAXIS Axis3
   #define RIGHTAXIS Axis2
