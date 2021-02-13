@@ -12,3 +12,18 @@ void testPID()
   //moveStop();
   wait(20, msec); // Sleep the task for a short amount of time t
 }
+
+
+void raiseLift(){
+  LiftMotor.spin(directionType::fwd, 100, velocityUnits::pct);
+  wait(7000,timeUnits::msec);
+  LiftMotor.stop(brakeType::hold);
+}
+
+void Score(){
+  BeltLeft.spin(directionType::fwd, 100, velocityUnits::pct);
+  BeltRight.spin(directionType::fwd, 100, velocityUnits::pct);
+  wait(8000, timeUnits::msec);
+  BeltLeft.stop(brakeType::coast);
+  BeltRight.stop(brakeType::coast);
+}

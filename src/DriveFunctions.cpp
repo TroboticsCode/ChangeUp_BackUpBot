@@ -151,7 +151,7 @@ void moveStop(void)
 
 void moveRotate(int16_t degrees, int velocity)
 {
-  float arcLength = (degrees/360.0f) * CIRCUMFERENCE;
+  float arcLength = (degrees/360.0) * CIRCUMFERENCE;
   float rotFactor = ROTATION_FACTOR;
   float rotations = arcLength / rotFactor;
 
@@ -266,3 +266,5 @@ void moveRotate(int16_t degrees, int velocity)
   #endif
 #endif
 }
+
+

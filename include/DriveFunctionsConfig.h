@@ -20,6 +20,8 @@ void moveLinear(float distance, int velocity);
 void moveRotate(int16_t degrees, int velocity);
 void moveStop(void);
 void userDrive(void);
+void raiseLift(void);
+void score(void);
 
 //this is where all the config variables for a robot are located. Change them to match your robot
 //these variables are used in DriveFunctions.cpp
@@ -44,8 +46,8 @@ void userDrive(void);
   extern motor BackLeft;
   extern motor BackRight;
 
-  #define FrontLeftPort     PORT12
-  #define FrontRightPort    PORT13
+  #define FrontLeftPort     PORT3
+  #define FrontRightPort    PORT12
   #define BackLeftPort      PORT11
   #define BackRightPort     PORT14
 
@@ -77,8 +79,8 @@ void userDrive(void);
  * (from wheel center to wheel center) of 
  * your chassis here in inches
  */
- #define CHASSIS_WIDTH    9.25f
- #define CHASSIS_LENGTH   10.5f
+ #define CHASSIS_WIDTH    14
+ #define CHASSIS_LENGTH   13.5
 
 #define HYPOTENUSE sqrt(pow(CHASSIS_WIDTH,2) + pow(CHASSIS_LENGTH,2))
 #define RADIUS  HYPOTENUSE/2.0f
